@@ -3,9 +3,8 @@ function output = tt_1D_operator(A, I, n, d)
 % dimensions, where the d-th dimension is A, and all the others are
 % identity matrix, I. For example:
 %
-% Operator = tt_1D_operator(A, I, 4, 2) is of the form:
+% 
 %
-% Operator = I \otimes A \otimes I \otimes I.
 %
 % ------------------------------
 % TT-Toolbox 1.0, 2014
