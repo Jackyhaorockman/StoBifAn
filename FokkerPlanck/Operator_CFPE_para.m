@@ -1,7 +1,7 @@
 function output = Operator_CFPE_para(x_lim, d, v, rate_ini, React, tol_rank, p_var, pd, plim, ip)
-% Parametric Finite Difference Operator for the Chemical Fokker-Planck
-% Equation in tensor train format (MASS-ACTION REACTION ONLY), as a
-% generalised form of Sylver matrix:
+% OPEARTOR_CFPE_PARA  Construct the parametric finite difference operator
+% for the chemical Fokker-Planck equation in tensor train format
+% (MASS-ACTION REACTION ONLY), as a generalised form of the sylver matrix:
 % 
 % OUTPUT = A_0 * I * ... * I + A_1 * K_1 * ... * I + A_M * I * ... * K_M
 % 
