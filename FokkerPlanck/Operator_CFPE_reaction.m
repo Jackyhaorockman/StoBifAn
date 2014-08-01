@@ -1,6 +1,7 @@
 function CFPE = Operator_CFPE_reaction(x_lim, d, v, rate, React, tol_rank)
-% Reaction-Wise Finite Difference Operaotor for the Chemical Fokker-Planck 
-% equation in tensor train format (MASS-ACTION REACTIONS ONLY).
+% OPERATOR_CPFE_REACTION  Compute Reaction-Wise Finite Difference Operaotor
+% for the Chemical Fokker-Planck equation in tensor train format
+% (MASS-ACTION reaction only).
 %
 % CPFE = OPERATOR_CFPE_REACTION(X_LIM, D, V, RATE, REACT, TOL_RANK)
 %
