@@ -1,7 +1,6 @@
-
 function output = tt_merge(x)
-% Kronecker product of N single dimensional matrix operators. The
-% input, x, should be a cell of N tensor matrices.
+% TT_MERGE   Construct the Kronecker product of N single dimensional matrix
+% operators. The input, x, should be a cell of N tensor matrices.
 %
 %
 % ------------------------------
