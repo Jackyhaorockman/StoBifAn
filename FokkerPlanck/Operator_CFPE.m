@@ -1,10 +1,10 @@
 function CFPE = Operator_CFPE(x_lim, d, v, rate, React, tol_rank, task)
-% Finite Difference Operator for the Chemical Fokker-Planck Equation in
-% Sparse Matrix or Tensor Train Format (MASS-ACTION REACTIONS ONLY).
+% OPERATOR_CFPE  Construct the finte difference operator of the chemical
+% Fokker-Planck equation (in either sparse matrix or tensor train format)
+% for mass-action reactions.
 %
 % CFPE = CFPE_operator(X_LIM, D, V, RATE, REACT)
 %
-% Construct finite difference operaotr for the CFPE in tensor train format.
 % The Direchlet boundary condition is applied for dimensions involved.
 %
 % X_LIM is a N x 2 matrix, where the N is the total number of the molecular
