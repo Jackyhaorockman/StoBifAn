@@ -1,7 +1,7 @@
 function Adaptive_Shifted_IVP_save(Operator, rhs, err_tol, tt_tol, file_name_tt, file_name_time, file_name_err, file_name_dt)
-% Adaptive shifted inverse power method for computing the steady state
-% distribution of stochastic chemical systems.
-%
+% ADAPTIVE_SHIFTED_IVP_SAVE  Implement adaptive shifted inverse power
+% method for computing the steady state distribuiton of stochastic chemical
+% systems.
 % 
 % Inputs:
 %
