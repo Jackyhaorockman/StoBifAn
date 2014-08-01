@@ -1,10 +1,6 @@
 function operator = tt_tridiag(d,alpha, beta, gamma)
-% Tridiagonal matrix in tensor train format.
-%
-% OPERATOR = TT_TRIDIAG(D, ALPH, BETA, GAMMA)
-%
-% Construct a tri-diagonal matrix of size n^d x n^d, where the diagonal
-% entries are all ALPHA's, the super-diagonal are all BETA's, and
+% TT_TRIDIAG  Construct a tri-diagonal matrix of size n^d x n^d, where the
+% diagonal entries are all ALPHA's, the super-diagonal are all BETA's, and
 % lower-diagonal are all GAMMA's.
 %
 %
