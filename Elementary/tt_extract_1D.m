@@ -16,6 +16,17 @@ function output = tt_extract_1D(tensor, d1, d2, n)
 % extracted.
 %
 %
+% ------------------------------
+% TT-Toolbox 1.0, 2014
+%
+% This is StoBifAn Toolbox, written by Shuohao Liao
+% Mathematical Institute, University of Oxford
+% webpage: http://maths.ox.ac.uk/liao
+%
+% For all questions, bugs and suggestions please email
+% liao@maths.ox.ac.uk
+% -----------------------------
+
 
 N = 2^d2;
 
