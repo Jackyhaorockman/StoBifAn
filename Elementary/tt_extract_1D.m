@@ -40,7 +40,7 @@ end
 for i = 1 : d2
     tensor = ttm(tensor, d1+i, x{i});
 end
-%output = squeeze(tensor);
+
 output = reshape(tensor, sz);
         
 end
