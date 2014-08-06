@@ -188,7 +188,7 @@ while err >= err_tol
             
             surf(x2_coordinate, x1_coordinate, x_dis, 'edgecolor', 'none');
             
-            axis tight; colorbar; 
+            axis tight; colorbar; view(2);
             
             xlabel(sprintf('X_%d',d2));
             ylabel(sprintf('X_%d',d1));
