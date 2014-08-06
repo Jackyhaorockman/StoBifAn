@@ -47,7 +47,7 @@ function Adaptive_Shifted_IVP_plot(Operator, rhs, err_tol, tt_tol, x_lim, d, d1,
 
 % computation parameters
 dt = 1e-5;  % adaptive parameter: time step
-dt_scale = 1.1;
+dt_scale = 1.5;
 
 rhs = rhs / norm(rhs);
 rhs_pre = rhs;
@@ -72,6 +72,7 @@ while err >= err_tol
     err
     dt
     swp
+    dt_scale
     if_repeat
     
     A = I - dt*Operator;
