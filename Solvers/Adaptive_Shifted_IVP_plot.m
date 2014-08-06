@@ -50,12 +50,13 @@ dt = 1e-5;  % adaptive parameter: time step
 dt_scale = 1.1;
 
 rhs = rhs / norm(rhs);
-err = norm(CME_para * rhs);
+rhs_pre = rhs;
+err = norm(Operator * rhs);
 if_up = 0;
 if_down = 0;
 if_repeat = 0;
 num_iter = 0;
-
+swp = 0;
 figure;
 
 I = tt_eye(2, length(size(Operator)));
@@ -70,6 +71,7 @@ while err >= err_tol
     num_iter
     err
     dt
+    swp
     if_repeat
     
     A = I - dt*Operator;
@@ -79,13 +81,13 @@ while err >= err_tol
     %      opts.kickrank=6;
     %      [rhs, ~, swp]=amen_solve(A, rhs, tt_tol, opts, rhs);
     % --- using amen_solve2 ----
-    [rhs,testdata,~] = amen_solve2(A, rhs, tt_tol, 'nswp', 30, 'x0', rhs, 'ismex', 'true');
+    [rhs,testdata,~] = amen_solve2(A, rhs, tt_tol, 'nswp', 30, 'x0', rhs);
     swp = find(testdata{1}(1,:)==0,1,'first');
     if isempty(swp); swp = 30; end;
     % --------------------------
     
     % ------- change the time step -----
-    if swp <= 3
+    if swp <= 4
         
         dt = dt*dt_scale;
         rhs = rhs_pre;
@@ -103,7 +105,7 @@ while err >= err_tol
         
         dt = dt/dt_scale;
         rhs = rhs / norm(rhs);
-        err = norm(CME_para * rhs);
+        err = norm(Operator * rhs);
         rhs_pre = rhs;
         if_plot = 1;
         if_up = 0;
@@ -113,7 +115,7 @@ while err >= err_tol
     else
         
         rhs = rhs / norm(rhs);
-        err = norm(CME_para * rhs);
+        err = norm(Operator * rhs);
         rhs_pre = rhs;
         if_plot = 1;
         if_up = 0;
@@ -145,8 +147,6 @@ while err >= err_tol
     if if_plot == 1
         
         num_iter = num_iter + 1;
-        
-        title(sprintf('eig = %1.3f', err));
         
         if d2 == 0 % plot one dimensional distribution
             
@@ -196,6 +196,10 @@ while err >= err_tol
             hold off;
             
         end
+        
+        title(sprintf('eig = %1.6f', err));
+        
+        drawnow;
         
     end
     
