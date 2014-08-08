@@ -63,6 +63,7 @@ function output = Operator_CFPE_para(x_lim, d, v, rate_ini, React, tol_rank, p_v
 
 [num_react, num_spe]  = size(v);
 
+ph = (plim(:,2) - plim(:,1)) / (2^pd - 1);
 
 A = Operator_CFPE_reaction(x_lim, d, v, rate_ini, React, tol_rank);
 
