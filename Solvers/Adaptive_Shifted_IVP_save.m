@@ -45,7 +45,7 @@ function Adaptive_Shifted_IVP_save(Operator, rhs, err_tol, tt_tol, file_name_tt,
 
 % computation parameters
 dt = 1e-5;  % adaptive parameter: time step
-dt_scale = 1.1;
+dt_scale = 1.5;
 
 rhs = rhs / norm(rhs);
 rhs_pre = rhs;

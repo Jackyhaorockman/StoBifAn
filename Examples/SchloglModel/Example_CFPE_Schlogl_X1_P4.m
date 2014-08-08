@@ -65,7 +65,7 @@ sigma = 0;
 tol_IVP = 1e-3;
 
 % define the error tolerance for tensor linear solver
-tol_solve = 1e-5;
+tol_solve = 1e-6;
 
 % define the path to save the data
 file_name_tt = 'parametric_steady_state';
@@ -77,7 +77,7 @@ file_name_dt = 'adaptive_time_step';
 
 % ====== Construct the Fokker-Planck operator =====
 
-CFPE = Operator_CFPE_para(x_lim, d, v, rate*0.97, React, tol_rank, p_var, pd, rate_interval, ip);
+CFPE = Operator_CFPE_para(x_lim, d, v, [1 1 1 1], React, tol_rank, p_var, pd, rate_interval, ip);
 
 RHS = Initial_CFPE_para(x_lim, d, task_RHS, mean, sigma, p_var, pd);
 

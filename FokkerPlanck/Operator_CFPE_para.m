@@ -63,12 +63,17 @@ function output = Operator_CFPE_para(x_lim, d, v, rate_ini, React, tol_rank, p_v
 
 [num_react, num_spe]  = size(v);
 
+% grid size in the parameter space
 ph = (plim(:,2) - plim(:,1)) / (2^pd - 1);
 
+% elementary operators in the CFPEf that involves only single reactions
 A = Operator_CFPE_reaction(x_lim, d, v, rate_ini, React, tol_rank);
 
+% Identity factor matrix
 Ip = tt_eye(2,pd);
 
+
+% diagonal matrices with diagonal entries equal to the grid coordinate
 for i = 1 : p_var
     
     Z{i} = diag(tt_ones(2,pd)*plim(i,1) + tt_x(2,pd)*ph(i));
