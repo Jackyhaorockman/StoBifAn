@@ -61,7 +61,7 @@ function output = Operator_CFPE_para(x_lim, d, v, rate_ini, React, tol_rank, p_v
 
 
 
-[num_react, ~]  = size(v);
+[num_react, num_spe]  = size(v);
 
 % grid size in the parameter space
 ph = (plim(:,2) - plim(:,1)) / (2^pd - 1);
@@ -81,7 +81,7 @@ for i = 1 : p_var
 end
 
 
-% assemble the sylver matrix
+
 output = [];
 
 for i = 1 : num_react
