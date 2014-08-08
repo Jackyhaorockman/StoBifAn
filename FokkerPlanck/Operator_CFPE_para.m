@@ -49,9 +49,9 @@ function output = Operator_CFPE_para(x_lim, d, v, rate_ini, React, tol_rank, p_v
 %
 %
 % ------------------------------
-% TT-Toolbox 1.0, 2014
+% StoBifan 1.0, 2014
 %
-% This is StoBifAn Toolbox, written by Shuohao Liao
+% This is Stochastic Bifurcation Analyser, written by Shuohao Liao
 % Mathematical Institute, University of Oxford
 % webpage: http://maths.ox.ac.uk/liao
 %

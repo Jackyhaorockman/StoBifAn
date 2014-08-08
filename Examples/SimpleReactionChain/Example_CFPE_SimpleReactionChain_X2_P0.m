@@ -7,9 +7,9 @@ function Example_CFPE_SimpleReactionChain_X2_P0
 %
 %
 % ------------------------------
-% TT-Toolbox 1.0, 2014
+% StoBifan 1.0, 2014
 %
-% This is StoBifAn Toolbox, written by Shuohao Liao
+% This is Stochastic Bifurcation Analyser, written by Shuohao Liao
 % Mathematical Institute, University of Oxford
 % webpage: http://maths.ox.ac.uk/liao
 %

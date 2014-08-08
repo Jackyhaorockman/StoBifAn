@@ -4,13 +4,13 @@ function output = tt_merge(x)
 %
 %
 % ------------------------------
-% TT-Toolbox 1.0, 2014
+% StoBifan 1.0, 2014
 %
-% This is StoBifAn Toolbox, written by Shuohao Liao
-% Mathematical institute, University of Oxford
+% This is Stochastic Bifurcation Analyser, written by Shuohao Liao
+% Mathematical Institute, University of Oxford
 % webpage: http://maths.ox.ac.uk/liao
 %
-% For all questions, bugs and suggestions please mail
+% For all questions, bugs and suggestions please email
 % liao@maths.ox.ac.uk
 % -----------------------------
 

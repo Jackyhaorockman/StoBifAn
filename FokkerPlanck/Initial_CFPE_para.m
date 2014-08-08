@@ -15,9 +15,9 @@ function output = Initial_CFPE_para(x_lim, d, task, mean, sigma, p_var, pd)
 %
 %
 % ------------------------------
-% TT-Toolbox 1.0, 2014
+% StoBifan 1.0, 2014
 %
-% This is StoBifAn Toolbox, written by Shuohao Liao
+% This is Stochastic Bifurcation Analyser, written by Shuohao Liao
 % Mathematical Institute, University of Oxford
 % webpage: http://maths.ox.ac.uk/liao
 %
