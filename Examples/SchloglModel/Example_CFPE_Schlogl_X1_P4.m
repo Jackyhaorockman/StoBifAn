@@ -39,7 +39,7 @@ React = [2; 3; 0; 1];
 x_lim = [0, 800];
 
 % number of grid points for each coordinate of the state space.
-d = 7; % number of grid points: n = 2^d
+d = 9; % number of grid points: n = 2^d
 
 % error tolerance for tensor rank truncation
 tol_rank = 1e-12;
