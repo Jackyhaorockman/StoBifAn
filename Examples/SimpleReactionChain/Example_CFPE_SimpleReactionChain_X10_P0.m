@@ -31,12 +31,17 @@ v = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0;
     0, 0, 0, 0, 0, 0, -1, 1, 0, 0;
     0, 0, 0, 0, 0, 0, 0, -1, 1, 0;
     0, 0, 0, 0, 0, 0, 0, 0, -1, 1;
-    0, 0, 0, 0, 0, 0, 0, 0, 0, -1]
+    0, 0, 0, 0, 0, 0, 0, 0, 0, -1];
 
 % reaction rate constants
 rate = [200, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 
-% number of reactant molecules in each reaction
+% number of reactant molecules in each reaction. 
+% React, is an M x N matrix, where M is the total number of reactions and N
+% is the number of the chemical species. Then, the entries at the i-th
+% column and j-th row refers to the number of the molecules from the i-th
+% species that take part in the j-th reaction, i.e., the value on the
+% left-hand side of the reaction equation.
 React = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0;
         1, 0, 0, 0, 0, 0, 0, 0, 0, 0;
         0, 1, 0, 0, 0, 0, 0, 0, 0, 0;
