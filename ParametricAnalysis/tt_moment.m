@@ -1,4 +1,4 @@
-function [output, d] = tt_moment( input_t, mu, d, km, x_lim, M)
+function [output, d, x_lim] = tt_moment( input_t, mu, d, km, x_lim, M)
 % TT_MOMENT Computes the mu-th order moment in the km-th dimension from the
 % tensorised data provided by input_t. Here, d is a vector containing the
 % number of modes for each dimension. x_lim is an N x 2 matrix storing the
@@ -17,7 +17,6 @@ function [output, d] = tt_moment( input_t, mu, d, km, x_lim, M)
 % For all questions, bugs and suggestions please email
 % liao@maths.ox.ac.uk
 % -----------------------------
-% compute the mean variance for int_D dimension
 
 
 % reshape the quantised tt representation to tt represenation for the
@@ -39,7 +38,17 @@ output = ttm(input_t, sum(d(1:km-1)) + 1, (x_data - M).^mu);
 
 d(km) = [];
 
+x_lim(km,:) = [];
+
 % to squeeze out the dimension being integrated
-output = reshape(output, 2*ones(1,sum(d)));
+if length(d) > 1
+    
+    output = reshape(output, 2*ones(1,sum(d)));
+    
+else 
+    
+    output = full(output);
+    
+end
 
 end
