@@ -1,4 +1,4 @@
-function output = parameter_cost_function(tt_moment, tt_integral, beta, mu_hat, p_index, d, h)
+function output = parameter_cost_function(tt_moment, tt_integral, beta, mu_hat, p_index, d, dx)
 % PARAMETER_COST_FUNCTION Compute the cost function for parameter
 % estimation using the method of moments from the tensorised solution,
 % input_tensor. The cost function will be a weighted sum of the difference
@@ -8,6 +8,21 @@ function output = parameter_cost_function(tt_moment, tt_integral, beta, mu_hat, 
 %
 % where L is the maximum order to be compared, \hat{mu}_l denotes the
 % l-th order empirical moment and mu_l be the model moment. 
+%
+% tt_moment and tt_integral, are the solutions obtained from the function
+% TPA/ParametricAnalysis/parameter_cost_function_prepare.m
+%
+% beta, is a vector of length L, which defines the weight coefficients for
+% each moment order.
+%
+% mu_hat, is a vector of length L, which defines the empirical moments.
+%
+% d, is a vector of length M, where M is the dimensionality of the
+% parameter space. Thus, d(i) denotes the number of tensor modes for each
+% dimension.
+%
+% dx, is the length (area/volume) of a single grid cell. This will be used
+% for normalisation in the moment orders.
 %
 %
 % ------------------------------
@@ -36,7 +51,7 @@ J = 0;
 
 for i = 1 : length(beta)
     
-    mu = tt_moment{i}(ind) / tt_integral(ind) / h;
+    mu = tt_moment{i}(ind) / tt_integral(ind) / dx;
     
     J = J + beta(i)*(mu - mu_hat(i))^2 / mu_hat(i)^2;
     
