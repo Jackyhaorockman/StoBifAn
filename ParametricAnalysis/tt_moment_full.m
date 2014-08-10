@@ -49,6 +49,8 @@ for j = 1 : n_dim
     
     m_index(1) = [];
     
+    M(1) = [];
+    
 end
 
 output = input_t;
