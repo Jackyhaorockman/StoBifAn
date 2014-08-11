@@ -1,3 +1,5 @@
+![alt tag](http://people.maths.ox.ac.uk/liao/stobifan/img/logo.png)
+
 StoBifAn/TPA
 ===
 
