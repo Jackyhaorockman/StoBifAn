@@ -3,9 +3,9 @@ StoBifAn/TPA
 
 Stochastic Bifurcation Analyser
 &
-Tensor-structured parametric analysis
+Tensor-structured Parametric Analysis
 
-The StoBifAn toolbox aims for automated, efficient analysis of high-dimensional well-mixed stochastic biochemical systems. The included MATLAB files requires [TT-Toolbox](https://github.com/oseledets/TT-Toolbox) with version >= 2.0.  Publication produced from the toolbox includes:
+The [StoBifAn](http://www.stobifan.org/) toolbox aims for automated, efficient analysis of high-dimensional well-mixed stochastic biochemical systems. The included MATLAB files requires [TT-Toolbox](https://github.com/oseledets/TT-Toolbox) with version >= 2.0.  Publication produced from the toolbox includes:
 
 Liao, S., Vejchodsky, T. & Erban, R. (2014). [Parameter estimation and bifurcation analysis of stochastic models of gene regulatory networks: tensor-structured methods](http://arxiv.org/abs/1406.7825). arXiv preprint arXiv:1406.7825.
 
