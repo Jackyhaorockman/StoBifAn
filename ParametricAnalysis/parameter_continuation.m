@@ -95,7 +95,9 @@ while check_stop == 0
                     end
                     
                 end
+                
             end
+            
         end
         
     end
