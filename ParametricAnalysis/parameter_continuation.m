@@ -2,7 +2,11 @@ function para_match = parameter_continuation(ind, bound, check_fcn, check_para)
 % PARAMETER_CONTINUATION Search for the grid points that satisfy the
 % criteria defined in the function, check_fcn, and are connected to the
 % initial point, given by the ROW vector, ind. check_para include
-% parameters for the check function.
+% parameters for the check function. 
+% 
+% bound, is a matrix, of which the first column contains the lower bound
+% for all parameter indices, and the second column contains the upper
+% bounds.
 %
 % 
 % ------------------------------
