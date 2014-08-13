@@ -65,10 +65,10 @@ sigma = 0;
 tol_IVP = 1e-3;
 
 % define the error tolerance for tensor linear solver
-tol_solve = 1e-6;
+tol_solve = 1e-5;
 
 % define the path to save the data
-file_name_tt = 'parametric_steady_state';
+file_name_tt = 'parametric_steady_state1';
 file_name_time = 'cpu_time'; 
 file_name_err = 'error_convergence';
 file_name_dt = 'adaptive_time_step';
