@@ -27,7 +27,7 @@ function output = Initial_CFPE_para(x_lim, d, task, mean, sigma, p_var, pd)
 
 A = Initial_CFPE(x_lim, d, task, mean, sigma);
 
-I = tt_eye(2, p_var * pd);
+I = tt_ones(2, p_var * pd);
 
 output = tkron(A, I);
 
