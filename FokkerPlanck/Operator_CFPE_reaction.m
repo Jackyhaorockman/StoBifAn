@@ -42,7 +42,7 @@ function CFPE = Operator_CFPE_reaction(x_lim, d, v, rate, React, tol_rank)
 
 
 n = 2^d;
-h = (x_lim(:,2) - x_lim(:,1)) / n;
+h = (x_lim(:,2) - x_lim(:,1)) / (n - 1);
 
 [num_react, num_spe]  = size(v);
 
@@ -56,17 +56,7 @@ X = cell(num_spe,1);
 
 for i = 1 : num_spe
     
-    X{i} = diag(x_lim(i,1)*tt_ones(2*ones(1,d)) + h(i)*tt_x(2*ones(1,d)));
-    
-end
-
-% Construct diagonal matrices for each dimension, where the diagonal
-% elements corresponds to the grid coordinates.
-X = cell(num_spe,1);
-
-for i = 1 : num_spe
-    
-    X{i} = diag(x_lim(i,1)*tt_ones(2*ones(1,d)) + h(i)*tt_x(2*ones(1,d)));
+    X{i} = diag(x_lim(i,1) + h(i)*tt_x(2*ones(1,d)));
     
 end
 
@@ -95,7 +85,7 @@ for i = 1 : num_react
                     
                 end
                 
-                alpha_i{j} = round(alpha_i{j},tol_rank);
+                %alpha_i{j} = round(alpha_i{j},tol_rank);
                 
             end
             
@@ -125,13 +115,9 @@ for i = 1 : num_spe
     Dx{i} = (1/(h(i))) * tt_1D_operator(Cdiff, I, num_spe, i);
     Dxx{i} = (1/h(i)^2) * tt_1D_operator(Lap, I, num_spe, i);
     
-    if i < num_spe
+    for j = 1:num_spe
         
-        for j = i+1:num_spe
-            
-            Dxy{i,j} = (1/(h(i))) * (1/(h(j))) * tt_1D_operator(Cdiff, I, num_spe, [i,j]);
-            
-        end
+        Dxy{i,j} = (1/(h(i))) * (1/(h(j))) * tt_1D_operator(Cdiff, I, num_spe, [i,j]);
         
     end
     
@@ -139,47 +125,36 @@ end
 
 % Compute the elementary part of the Fokker-Planck operator that
 % contributed from each separate reaction.
-D = cell(num_spe,num_react);
-DD = cell(num_spe,num_react);
+
+CFPE = cell(num_react, 1);
 
 for j = 1 : num_react
     
-    for i = 1 : num_spe
+    CFPE{j} = [];
+    
+    for i1 = 1 : num_spe
         
-        if v(j,i) ~= 0
+        if v(j,i1) ~= 0
             
-            D{i,j} = D{i,j} + v(j,i)*alpha{j};
-            D{i,j} = round(D{i,j}, tol_rank);
+            CFPE{j} = CFPE{j} - Dx{i1}*v(j,i1)*alpha{j};
             
-            DD{i,j} = DD{i,j} + v(j,i)^2*alpha{j};
-            DD{i,j} = round(DD{i,j}, tol_rank);
+            CFPE{j} = CFPE{j} + 0.5*Dxx{i1}*v(j,i1)^2*alpha{j};
+            
+            for i2 = 1 : i1-1
+                
+                if v(j,i2) ~= 0
+                    
+                    CFPE{j} = CFPE{j} + Dxy{i1,i2}*v(j,i1)*v(j,i2)*alpha{j};
+                    
+                end
+                
+            end
             
         end
-        
+
     end
     
-    Diffusion = [];
-    Drift = [];
-    
-    for i = 1 : num_spe
-        
-        if ~isempty( DD{i,j} )
-            
-            Diffusion = Diffusion + 0.5*Dxx{i}*DD{i,j};
-            Diffusion = round(Diffusion, tol_rank);
-            
-        end
-        
-        if ~isempty( D{i,j} )
-            
-            Drift = Drift - Dx{i}*D{i,j};
-            Drift = round(Drift, tol_rank);
-            
-        end
-        
-    end
-    
-    CFPE{j} = round(Diffusion + Drift, tol_rank);
+    CFPE{j} = round(CFPE{j}, tol_rank);
     
 end
 
