@@ -39,17 +39,27 @@ ub = N;
 x = cell(d2,1);
 
 for D = d2 :-1: 1
+    
     if n > (lb + ub)/2
+        
         x{D} = [0 1]';
+        
         lb = (lb + ub)/2;
+        
     else
+        
         x{D} = [1 0]';
+        
         ub = (lb + ub)/2;
+        
     end
+    
 end
 
 for i = 1 : d2
+    
     tensor = ttm(tensor, d1+i, x{i});
+    
 end
 
 output = reshape(tensor, sz);
