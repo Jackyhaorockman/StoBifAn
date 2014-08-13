@@ -34,7 +34,7 @@ function Example_CFPE_Schlogl_Identifiability
 % !!! NOTE: the simulation parameters here should be consistent with the
 % parameters assigned to the function: Example_CFPE_Schlogl_X1_P4.
 
-dis = tt_tensor('parametric_steady_state1');
+dis = tt_tensor('parametric_steady_state');
 
 beta = [1 100 .001];   % weight coefficients for different moment orders.
 
