@@ -20,30 +20,49 @@ function tensor = tt_extract_2d(tensor, d, d1, d2)
 D = length( d );
 
 if d2 == 0
+    
     n = d;
+    
     check = zeros(1,D); check(d1) = 1;
     
     while any( check == 0 )
+        
         dim = find(check == 0);
+        
         [tensor, n] = tt_integration(tensor, n, dim(1));
+        
         check(dim(1)) = [];
+        
     end
+    
     tensor = full(tensor);
+    
     tensor = abs(tensor);
     
 else
     
     n = d;
+    
     check = zeros(1,D); check(d1) = 1; check(d2) = 1;
     
     while any( check == 0 )
+        
         dim = find(check == 0);
+        
         [tensor, n] = tt_integration(tensor, n, dim(1));
+        
         check(dim(1)) = [];
+        
         dim(1) = [];
+        
     end
+    
     tensor = full(tensor);
+    
     tensor = abs(tensor);
+    
     tensor = reshape(tensor,2^d(d1),2^d(d2));
+    
 end
+
 end
