@@ -42,7 +42,7 @@ ind = [];
 
 for i = 1 : length(d)
     
-    ind = [ind, tt_sub2ind(2*ones(1,d(i)), p_index(i))];
+    ind = [ind, tt_ind2sub(2*ones(1,d(i)), p_index(i))];
     
 end
 
