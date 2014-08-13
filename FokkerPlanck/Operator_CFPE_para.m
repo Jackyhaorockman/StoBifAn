@@ -74,9 +74,11 @@ Ip = tt_eye(2,pd);
 
 
 % diagonal matrices with diagonal entries equal to the grid coordinate
+Z = cell(p_var,1);
+
 for i = 1 : p_var
     
-    Z{i} = diag(tt_ones(2,pd)*plim(i,1) + tt_x(2,pd)*ph(i));
+    Z{i} = diag(plim(i,1) + tt_x(2,pd)*ph(i));
     
 end
 
