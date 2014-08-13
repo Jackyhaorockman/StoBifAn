@@ -1,4 +1,4 @@
-function [tt_moment, tt_integral] = parameter_cost_function_prepare(input_t, mu_order, m_index, d, x_lim)
+function [tt_moment, tt_integral] = parameter_cost_function_prepare(input_t, mu_order, m_index, d, x_lim, Mean)
 % PARAMETER_COST_FUNCTION_PREPARE Compute nessary tensor data for
 % evaluating the cost function (see PARAMETER_COST_FUNCTION). 
 %
@@ -31,6 +31,9 @@ function [tt_moment, tt_integral] = parameter_cost_function_prepare(input_t, mu_
 % second row refers to the higher boundary. For the other M rows, the value
 % will not be used.
 %
+% Mean, is a vector of length N, which specifies the mean value for
+% computing the moment values. This can be the emperical means.
+%
 %
 % ------------------------------
 % StoBifan 1.0, 2014
@@ -48,21 +51,21 @@ function [tt_moment, tt_integral] = parameter_cost_function_prepare(input_t, mu_
 
 tt_integral = tt_moment_full( input_t, zeros(n_x, 1), m_index, d, x_lim, 0);
 
-mean = zeros(n_x, 1);
-
-for i = 1 : n_x
-    
-    ei = zeros(1, n_x); ei(i) = 1;
-    
-    mean(i) = tt_moment_full(input_t, ei, m_index, d, x_lim, 0);
-    
-end
+% Mean = zeros(n_x, 1);
+% 
+% for i = 1 : n_x
+%     
+%     ei = zeros(1, n_x); ei(i) = 1;
+%     
+%     Mean(i) = tt_moment_full(input_t, ei, m_index, d, x_lim, 0);
+%     
+% end
 
 tt_moment = cell(n_m,1);
 
 for i = 1 : n_m
     
-    tt_moment{i} = tt_moment_full( input_t, mu_order(i,:), m_index, d, x_lim, mean);
+    tt_moment{i} = tt_moment_full( input_t, mu_order(i,:), m_index, d, x_lim, Mean);
 
 end
     
