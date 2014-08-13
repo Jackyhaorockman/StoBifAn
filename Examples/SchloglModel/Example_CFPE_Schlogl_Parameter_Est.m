@@ -55,11 +55,15 @@ x_lim = [x_lim; rate_interval]; % combine interval of state space with parameter
 
 var.tol = (2.5/1000)^2; % tolerance for the method of moment
 
+par_bound = [1, 2^var.dp(1);
+            1, 2^var.dp(2);
+            1, 2^var.dp(3)];
+
 % ---------------------------------
 
 % ------------ parametric continuation -------------------
 
-para_match = parameter_continuation([64 64 64], @check_fcn, var);
+para_match = parameter_continuation([64 64 64], par_bound, @check_fcn, var);
 
 % --------------------------------
 
