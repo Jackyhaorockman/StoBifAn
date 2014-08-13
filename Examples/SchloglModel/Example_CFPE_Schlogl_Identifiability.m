@@ -61,6 +61,8 @@ x_lim = [x_lim; rate_interval]; % combine interval of state space with parameter
 [tt_moment, tt_integral] = parameter_cost_function_prepare(dis, mu_order, m_index, d, x_lim, mu_hat(1));
 
 
+% extract the value of the cost function for each parameter combination in
+% the 2D parameter space
 cost = zeros(2^dp(1), 2^dp(3));
 
 for i1 = 1 : 2^dp(1) % loop through the first parameter k1
@@ -77,8 +79,24 @@ for i1 = 1 : 2^dp(1) % loop through the first parameter k1
     
 end
 
-figure;
+% rescale the cost function for better visualisation
+cost = log(cost + 1e-2); % rescale to log scale
 
-surf(cost); axis tight; view(2);
+cost = cost - min(cost(:)); % lower bound rescaled to 0
+
+cost = cost / max(cost(:)); % upper bound rescaled to 1
+
+% plot the rescaled function
+
+figure; set(gca, 'fontsize', 20);
+
+surf( linspace(rate_interval(3,1), rate_interval(3,2), 2^dp(3)), ...
+    linspace(rate_interval(1,1), rate_interval(1,2), 2^dp(1)), ...
+    cost,...
+    'edgecolor', 'none'); 
+
+axis tight; view(2);
+
+ylabel('k_3'); xlabel('k_1');
         
 end
