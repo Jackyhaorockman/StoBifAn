@@ -22,7 +22,7 @@ function [output, d, x_lim] = tt_moment( input_t, mu, d, km, x_lim, M)
 
 % reshape the quantised tt representation to tt represenation for the
 % dimension to be integrated
-output = reshape(input_t, [2*ones(1,sum(d(1:km-1))), 2^d(km),...
+input_t = reshape(input_t, [2*ones(1,sum(d(1:km-1))), 2^d(km),...
     2*ones(1,sum(d(km+1:end)))]);
 
 
