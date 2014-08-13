@@ -36,10 +36,10 @@ React = [2; 3; 0; 1];
 % ===== Define the simulation parameters ====
 
 % lower and upper bounds for the truncated state space
-x_lim = [0, 800];
+x_lim = [0, 1000];
 
 % number of grid points for each coordinate of the state space.
-d = 9; % number of grid points: n = 2^d
+d = 10; % number of grid points: n = 2^d
 
 % error tolerance for tensor rank truncation
 tol_rank = 1e-12;
@@ -48,7 +48,7 @@ tol_rank = 1e-12;
 p_var = 4;
 
 % number of grid points for each coordinate of the parameter space.
-pd = 6; % number of grid points: n = 2^pd
+pd = 7; % number of grid points: n = 2^pd
 
 % specify the parameter to its reaction index:
 ip = {{1},{2},{3},{4}};
