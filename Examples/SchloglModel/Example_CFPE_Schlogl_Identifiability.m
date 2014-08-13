@@ -18,8 +18,6 @@ function Example_CFPE_Schlogl_Identifiability
 % tensor-structured methods. arXiv preprint arXiv:1406.7825.
 %
 %
-%
-%
 % ------------------------------
 % StoBifan 1.0, 2014
 %
