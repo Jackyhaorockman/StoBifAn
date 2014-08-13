@@ -57,7 +57,7 @@ while check_stop == 0
             para_current = para_center + pos(i,:);
             
             % check if the grid point satisfy certain criteria
-            check_value = check_fcn(par, check_para);
+            check_value = check_fcn(para_current, check_para);
             
             if check_value == 1 % satisfied
                 
@@ -72,27 +72,27 @@ while check_stop == 0
             end
         end
         
-        % close the center point
-        check_close(para_index) = 1;
+    end
+    
+    % close the center point
+    check_close(para_index) = 1;
+    
+    % check if there are some repeated points; if yes, delete them.
+    [para_match, ia, ~] = unique(para_match,'rows');
+    
+    check_close = check_close(ia);
+    
+    % locate the next searching points:
+    para_index = find(check_close == 0, 1);
+    
+    % check if the searching is complete
+    if isempty(para_index)
         
-        % check if there are some repeated points; if yes, delete them.
-        [para_match, ia, ~] = unique(para_match,'rows');
+        check_stop = 1; % stop the iteration
         
-        check_close = check_close(ia);
+    else
         
-        % locate the next searching points:
-        para_index = find(check_close == 0, 1);
-        
-        % check if the searching is complete
-        if isempty(para_index)
-            
-            check_stop = 1; % stop the iteration
-            
-        else
-            
-            para_center = para_match(para_index,:); % reset the center point
-            
-        end
+        para_center = para_match(para_index,:); % reset the center point
         
     end
     
