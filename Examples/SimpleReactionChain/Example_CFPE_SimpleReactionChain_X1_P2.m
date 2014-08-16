@@ -69,7 +69,7 @@ tol_solve = 1e-4;
 
 
 % ====== Construct the Fokker-Planck operator =====
-CFPE = Operator_CFPE_para(x_lim, d, v, rate, React, tol_rank, p_var, pd, rate_interval, ip);
+CFPE = Operator_CFPE_para(x_lim, d, v, rate, React, tol_rank, p_var, pd, rate_interval, ip, @CFPE_alpha_mass_action, 0);
 
 RHS = Initial_CFPE_para(x_lim, d, 1, 0, 0, p_var, pd); % uniform distribution as initial guess
 

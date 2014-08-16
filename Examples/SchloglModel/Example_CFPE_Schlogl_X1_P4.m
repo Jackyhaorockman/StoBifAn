@@ -77,7 +77,7 @@ file_name_dt = 'adaptive_time_step';
 
 % ====== Construct the Fokker-Planck operator =====
 
-CFPE = Operator_CFPE_para(x_lim, d, v, [1 1 1 1], React, tol_rank, p_var, pd, rate_interval, ip);
+CFPE = Operator_CFPE_para(x_lim, d, v, [1 1 1 1], React, tol_rank, p_var, pd, rate_interval, ip, @CFPE_alpha_mass_action, 0);
 
 RHS = Initial_CFPE_para(x_lim, d, task_RHS, mean, sigma, p_var, pd);
 

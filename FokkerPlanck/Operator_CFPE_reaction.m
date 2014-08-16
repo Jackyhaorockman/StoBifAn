@@ -1,4 +1,4 @@
-function CFPE = Operator_CFPE_reaction(x_lim, d, v, rate, React, tol_rank)
+function CFPE = Operator_CFPE_reaction(x_lim, d, v, rate, React, tol_rank, alpha_fcn, alpha_para)
 % OPERATOR_CPFE_REACTION  Compute Reaction-Wise Finite Difference Operaotor
 % for the Chemical Fokker-Planck equation in tensor train format
 % (MASS-ACTION reaction only).
@@ -27,6 +27,12 @@ function CFPE = Operator_CFPE_reaction(x_lim, d, v, rate, React, tol_rank)
 %
 % TOL_RANK is a user-defined coefficient for the level of tensor truncation
 % errors.
+%
+% alpha_fcn, is a function which computes the propensity functions for all
+% reaction involved. (default parameters assigned for 
+% CFPE_alpha_mass_action.m)
+%
+% alpha_para, defines other user defined parameters, if needed.
 %
 %
 % ------------------------------
@@ -61,48 +67,61 @@ for i = 1 : num_spe
 end
 
 % Compute the propensity function for each reaction.
-alpha = cell(num_react,1);
-
-for i = 1 : num_react
-    
-    alpha_i = cell(num_spe,1);
-    
-    for j = 1 : num_spe
-        
-        if React(i,j) == 0
-            
-            alpha_i{j} = I;
-            
-        else
-            
-            alpha_i{j} = X{j};
-            
-            if React(i,j) > 1
-                
-                for k = 1 : React(i,j)-1
-                    
-                    alpha_i{j} = alpha_i{j} * (X{j} - k*I);
-                    
-                end
-                
-                %alpha_i{j} = round(alpha_i{j},tol_rank);
-                
-            end
-            
-        end
-        
-    end
-    
-    alpha{i} = tt_merge(alpha_i);
-    
+if isstruct(alpha_para) ~= 1
+    alpha_para = [];
 end
 
+alpha_para.d_x = d;
+alpha_para.x_lim = x_lim;
+alpha_para.v = v;
+alpha_para.React = React;
+alpha_para.rate = rate;
+alpha_para.tol_rank = tol_rank;
 
-for i = 1 : num_react
-    
-    alpha{i} = rate(i) * alpha{i};
-    
-end
+alpha = alpha_fcn(alpha_para);
+
+% alpha = cell(num_react,1);
+% 
+% for i = 1 : num_react
+%     
+%     alpha_i = cell(num_spe,1);
+%     
+%     for j = 1 : num_spe
+%         
+%         if React(i,j) == 0
+%             
+%             alpha_i{j} = I;
+%             
+%         else
+%             
+%             alpha_i{j} = X{j};
+%             
+%             if React(i,j) > 1
+%                 
+%                 for k = 1 : React(i,j)-1
+%                     
+%                     alpha_i{j} = alpha_i{j} * (X{j} - k*I);
+%                     
+%                 end
+%                 
+%                 %alpha_i{j} = round(alpha_i{j},tol_rank);
+%                 
+%             end
+%             
+%         end
+%         
+%     end
+%     
+%     alpha{i} = tt_merge(alpha_i);
+%     
+% end
+% 
+% 
+% for i = 1 : num_react
+%     
+%     alpha{i} = rate(i) * alpha{i};
+%     
+% end
 
 
 % Compute the 1st, 2nd and mixed derivatives in FDM

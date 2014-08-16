@@ -1,4 +1,4 @@
-function output = Operator_CFPE_para(x_lim, d, v, rate_ini, React, tol_rank, p_var, pd, plim, ip)
+function output = Operator_CFPE_para(x_lim, d, v, rate_ini, React, tol_rank, p_var, pd, plim, ip, alpha_fcn, alpha_para)
 % OPEARTOR_CFPE_PARA  Construct the parametric finite difference operator
 % for the chemical Fokker-Planck equation in tensor train format
 % (MASS-ACTION REACTION ONLY), as a generalised form of the sylver matrix:
@@ -47,6 +47,12 @@ function output = Operator_CFPE_para(x_lim, d, v, rate_ini, React, tol_rank, p_v
 % parameter(s) that contribute to the j-th reaction (only in a
 % multiplicative way). For example: ip = {{0}, {1}, {2,3}};
 %
+% alpha_fcn, is a function which computes the propensity functions for all
+% reaction involved. (default parameters assigned for 
+% CFPE_alpha_mass_action.m)
+%
+% alpha_para, defines other user defined parameters, if needed.
+%
 %
 % ------------------------------
 % StoBifan 1.0, 2014
@@ -67,7 +73,7 @@ function output = Operator_CFPE_para(x_lim, d, v, rate_ini, React, tol_rank, p_v
 ph = (plim(:,2) - plim(:,1)) / (2^pd - 1);
 
 % elementary operators in the CFPEf that involves only single reactions
-A = Operator_CFPE_reaction(x_lim, d, v, rate_ini, React, tol_rank);
+A = Operator_CFPE_reaction(x_lim, d, v, rate_ini, React, tol_rank, alpha_fcn, alpha_para);
 
 % Identity factor matrix
 Ip = tt_eye(2,pd);
