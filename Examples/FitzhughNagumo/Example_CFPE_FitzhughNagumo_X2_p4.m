@@ -1,4 +1,4 @@
-function Example_CFPE_CellCycle_X4_p1
+function Example_CFPE_FitzhughNagumo_X2_p4
 % EXAMPLE_CFPE_CELLCYCLE_X4_P1
 %
 %
@@ -8,17 +8,14 @@ function Example_CFPE_CellCycle_X4_p1
 % ====== Define the model parameters =====
 
 % Stoichiometric matrix
-v = [0,0,0,1,0;    % 0  --> X4
-    0,0,0,-1,0;   % 0  <-- X4
-    -1,1,0,-1,0;    % X1 + X4 --> X2
-    0,-1,1,0,0;   % X2 --> X3
-    0,1,-1,0,0;   % X2 <-- X3
-    0,0,-1,0,1;   % X3 --> X5
-    0,0,0,0,-1;   % X5 --> 0
-    1,0,0,0,0;   % 0 --> X1
-    -1,0,0,0,0;   % X1 --> 0
-    -1,0,0,0,0;   % X1 --> 0
-    ];            % v_ji denotes the change in the number of Xi produced by one Rj reaction.
+v = [1, 0;
+    -1, 0;
+    -1, 0;
+    1, 0;
+    -1, 0;
+    1, 0;
+    0, 1;
+    0, -1];
 
 % Reaction rates
 para_alpha.CT = 5000;
@@ -26,17 +23,13 @@ para_alpha.aa = 1;
 para_alpha.k4p = 0.018;
 para_alpha.tP = .001;
 
-rate = [0.015 * para_alpha.CT; 
-    0;
-    200 / para_alpha.CT;
-	80; % 10 - 1000;
-    0; 
-	1; % bifurcation parameter
-	0.6;
-	1000;
-    100];
+rate_ini = [2000 1 1 1 1];
 
-rate_interval = [0.25, 0.4]; % for k_6
+% computational domain in parameter space
+rate = [2000; 0.2; 0.112; 2.5; 0.105];
+pcv = 15/100;
+rate_interval = diag(rate) * ones(length(rate),1) * [1  - pcv, 1 + pcv];
+rate_interval (1,:) = [];
 
 React = v; % this variable will NOT be used.
 
@@ -46,10 +39,7 @@ React = v; % this variable will NOT be used.
 % ===== Define the simulation parameters ====
 
 % lower and upper bounds for the truncated state space
-x_lim = [10, 70; 
-        0, 1500; 
-        0, 1200; 
-        20, 70; 
+x_lim = [-200, 1800;
         0, 700];
     
 % number of grid points for each coordinate of the state space.
@@ -59,13 +49,20 @@ d = 8; % number of grid points: n = 2^d
 tol_rank = 1e-12;
 
 % total number of variable model parameter
-p_var = 1;
+p_var = 4;
 
 % number of grid points for each coordinate of the parameter space.
-pd = 5; % number of grid points: n = 2^pd
+pd = 7; % number of grid points: n = 2^pd
 
 % specify the parameter to its reaction index:
-ip = {{0},{0},{0},{0},{0},{1},{0},{0},{0},{0}};
+ip = {{0};
+    {0};
+    {1};
+    {1};
+    {0};
+    {2};
+    {4};
+    {3,4}};
 
 % define the type of initial guess: uniform
 task_RHS = 1;
@@ -95,7 +92,7 @@ file_name_dt = 'adaptive_time_step';
 
 % ====== Construct the Fokker-Planck operator =====
 
-CFPE = Operator_CFPE_para(x_lim, d, v, rate, React, tol_rank, p_var, pd, rate_interval, ip, @CFPE_alpha_Example_CellCycle, para_alpha);
+CFPE = Operator_CFPE_para(x_lim, d, v, rate_ini, React, tol_rank, p_var, pd, rate_interval, ip, @CFPE_alpha_Example_FitzhughNagumo, 0);
 
 RHS = Initial_CFPE_para(x_lim, d, task_RHS, mean, sigma, p_var, pd);
 
