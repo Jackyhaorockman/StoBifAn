@@ -2,6 +2,7 @@ function alpha = CFPE_alpha_Example_FitzhughNagumo(para)
 % CFPE_ALPHA_EXAMPLE_FITZHUGHNAGUMO Returns the propensity functions for
 % all reactions involved in the Fitzhugh-Nagumo model in tensor format. 
 %
+% see, Example_CFPE_FitzhughNagumo_X2_p4.m
 %
 % ------------------------------
 % StoBifan 1.0, 2014
