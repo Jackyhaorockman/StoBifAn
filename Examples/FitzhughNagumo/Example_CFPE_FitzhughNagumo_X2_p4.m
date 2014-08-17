@@ -1,7 +1,28 @@
 function Example_CFPE_FitzhughNagumo_X2_p4
-% EXAMPLE_CFPE_CELLCYCLE_X4_P1
+% EXAMPLE_CFPE_FITZHUGHNAGUMO Present an example code for solving the
+% steady state distribution of the Fitzhugh-Nagumo neuron model, which
+% contains 2 chemical species (activator and inhibitor) and 4 model
+% parameters. 
 %
 %
+% For more information about this example, please see the related
+% publication:
+% 
+% Liao, S., Vejchodsky, T. & Erban, R. (2014). Parameter estimation and 
+% bifurcation analysis of stochastic models of gene regulatory networks: 
+% tensor-structured methods. arXiv preprint arXiv:1406.7825.
+%
+%
+% ------------------------------
+% StoBifan 1.0, 2014
+%
+% This is Stochastic Bifurcation Analyser, written by Shuohao Liao
+% Mathematical Institute, University of Oxford
+% webpage: http://maths.ox.ac.uk/liao
+%
+% For all questions, bugs and suggestions please email
+% liao@maths.ox.ac.uk
+% -----------------------------
 
 
 
