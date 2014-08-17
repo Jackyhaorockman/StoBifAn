@@ -1,5 +1,5 @@
 function Example_CFPE_FitzhughNagumo_X2_p4
-% EXAMPLE_CFPE_FITZHUGHNAGUMO Present an example code for solving the
+% EXAMPLE_CFPE_FITZHUGHNAGUMO_X2_P4 Present an example code for solving the
 % steady state distribution of the Fitzhugh-Nagumo neuron model, which
 % contains 2 chemical species (activator and inhibitor) and 4 model
 % parameters. 

@@ -1,7 +1,27 @@
-function Example_CFPE_CellCycle_X4_p1
-% EXAMPLE_CFPE_CELLCYCLE_X4_P1
+function Example_CFPE_CellCycle_X5_p1
+% EXAMPLE_CFPE_CELLCYCLE_X5_P1 Present and example code for solving the
+% parametric steady state distribution of the cell cycle model, which
+% contains 6 chemical species and 1 bifurcation parameter. 
 %
 %
+% For more information about this example, please see the related
+% publication:
+% 
+% Liao, S., Vejchodsky, T. & Erban, R. (2014). Parameter estimation and 
+% bifurcation analysis of stochastic models of gene regulatory networks: 
+% tensor-structured methods. arXiv preprint arXiv:1406.7825.
+%
+%
+% ------------------------------
+% StoBifan 1.0, 2014
+%
+% This is Stochastic Bifurcation Analyser, written by Shuohao Liao
+% Mathematical Institute, University of Oxford
+% webpage: http://maths.ox.ac.uk/liao
+%
+% For all questions, bugs and suggestions please email
+% liao@maths.ox.ac.uk
+% -----------------------------
 
 
 
