@@ -1,4 +1,21 @@
 function alpha = CFPE_alpha_Example_CellCycle(para)
+% CFPE_ALPHA_EXAMPLE_CellCycle Returns the propensity functions for
+% all reactions involved in the cell cycle model in tensor format. 
+%
+% see Example_CFPE_CellCycle_X5_p1.m
+%
+%
+% ------------------------------
+% StoBifan 1.0, 2014
+%
+% This is Stochastic Bifurcation Analyser, written by Shuohao Liao
+% Mathematical Institute, University of Oxford
+% webpage: http://maths.ox.ac.uk/liao
+%
+% For all questions, bugs and suggestions please email
+% liao@maths.ox.ac.uk
+% -----------------------------
+
 
 n = 2^para.d_x;
 
