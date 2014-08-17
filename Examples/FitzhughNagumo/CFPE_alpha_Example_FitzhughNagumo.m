@@ -1,4 +1,19 @@
 function alpha = CFPE_alpha_Example_FitzhughNagumo(para)
+% CFPE_ALPHA_EXAMPLE_FITZHUGHNAGUMO Returns the propensity functions for
+% all reactions involved in the Fitzhugh-Nagumo model in tensor format. 
+%
+%
+% ------------------------------
+% StoBifan 1.0, 2014
+%
+% This is Stochastic Bifurcation Analyser, written by Shuohao Liao
+% Mathematical Institute, University of Oxford
+% webpage: http://maths.ox.ac.uk/liao
+%
+% For all questions, bugs and suggestions please email
+% liao@maths.ox.ac.uk
+% -----------------------------
+
 
 n = 2^para.d_x;
 
