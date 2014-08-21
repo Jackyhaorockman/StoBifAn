@@ -54,7 +54,7 @@ alpha{6} = para.rate(6) * tt_merge({I, I, X{3}, I, I});
 
 alpha{7} = para.rate(7) * tt_merge({I, I, I, I, X{5}});
 
-alpha{8} = para.rate(8) * tP * CT * tt_merge({I, I, I, I, I});
+alpha{8} = para.rate(8) * para.tP * para.CT * tt_merge({I, I, I, I, I});
 
 alpha{9} = para.rate(8) * para.tP * (tt_merge({X{1}, I, I, I, I}) + tt_merge({I, X{2}, I, I, I}) + tt_merge({I, I, X{3}, I, I}));
 
