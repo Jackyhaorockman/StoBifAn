@@ -1,5 +1,5 @@
-function Example_CFPE_Schlogl_Parameter_Est
-% EXAMPLE_CFPE_SCHLOGL_PARAMETER_EST Provide a template file for parameter
+function Example_1_2_3_CFPE_Schlogl_Parameter_Est
+% EXAMPLE_1_2_3_CFPE_SCHLOGL_PARAMETER_EST Provide a template file for parameter
 % estimation using the parameter continuation in tensor-structured data
 % format. 
 %

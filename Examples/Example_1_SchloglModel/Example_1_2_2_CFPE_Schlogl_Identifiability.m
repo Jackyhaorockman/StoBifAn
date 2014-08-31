@@ -1,5 +1,5 @@
-function Example_CFPE_Schlogl_Identifiability
-% EXAMPLE_CFPE_SCHLOGL_IDENTIFIABILITY Computes the cost function of the
+function Example_1_2_2_CFPE_Schlogl_Identifiability
+% EXAMPLE_1_2_2_CFPE_SCHLOGL_IDENTIFIABILITY Computes the cost function of the
 % method of moments for the Schlogl model. The function compares the first
 % three moment orders with the prescribed imperical data:
 %

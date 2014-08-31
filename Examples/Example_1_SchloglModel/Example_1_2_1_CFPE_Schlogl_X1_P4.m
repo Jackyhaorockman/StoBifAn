@@ -1,5 +1,5 @@
-function Example_CFPE_Schlogl_X1_P4
-% EXAMPLE_CFPE_SCHLOGL_X1_P4 Provides an template code for solving the
+function Example_1_2_1_CFPE_Schlogl_X1_P4
+% EXAMPLE_1_2_1_CFPE_SCHLOGL_X1_P4 Provides an template code for solving the
 % steady state distribution of the parametric chemical Fokker-Planck 
 % equation for the Schlogl model. All four biophysical parameters are
 % treated as variables here, and the solution is saved in .sdv data

@@ -1,5 +1,5 @@
-function Example_CFPE_CellCycle_X5_p1
-% EXAMPLE_CFPE_CELLCYCLE_X5_P1 Present and example code for solving the
+function Example_3_1_1_CFPE_CellCycle_X5_p1
+% EXAMPLE_3_1_1_CFPE_CELLCYCLE_X5_P1 Present and example code for solving the
 % parametric steady state distribution of the cell cycle model, which
 % contains 6 chemical species and 1 bifurcation parameter. 
 %

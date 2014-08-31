@@ -1,5 +1,5 @@
-function Example_CFPE_Schlogl_X1_P0
-% EXAMPLE_CFPE_SCHLOGL_X1_P0 Provides an template code for solving and
+function Example_1_1_CFPE_Schlogl_X1_P0
+% EXAMPLE_1_1_CFPE_SCHLOGL_X1_P0 Provides an template code for solving and
 % plotting the steady state distribution of the Schlogl model with constant
 % reaction rate.
 %

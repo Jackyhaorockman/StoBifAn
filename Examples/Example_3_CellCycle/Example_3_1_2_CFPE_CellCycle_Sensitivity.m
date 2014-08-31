@@ -1,5 +1,5 @@
-function Example_CFPE_CellCycle_Sensitivity
-% EXAMPLE_CFPE_CELLCYCLE_SENSITIVITY Computes the sensitivity indicators
+function Example_3_1_2_CFPE_CellCycle_Sensitivity
+% EXAMPLE_3_1_2_CFPE_CELLCYCLE_SENSITIVITY Computes the sensitivity indicators
 % defined for probability distribution of the cell cycle model.
 %
 %

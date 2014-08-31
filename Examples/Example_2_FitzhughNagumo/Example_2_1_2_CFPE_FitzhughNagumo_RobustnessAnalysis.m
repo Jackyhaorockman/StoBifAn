@@ -1,5 +1,5 @@
-function Example_CFPE_FitzhughNagumo_RobustnessAnalysis
-% EXAMPLE_CFPE_FITZHUGHNAGUMO_ROBUSTNESSANALYSIS Computes the averaged
+function Example_2_1_2_CFPE_FitzhughNagumo_RobustnessAnalysis
+% EXAMPLE_2_1_2_CFPE_FITZHUGHNAGUMO_ROBUSTNESSANALYSIS Computes the averaged
 % behaviour of the Fitzhugh-Nagumo model with respect to different
 % parametric distributions (delta, normal, uniform and bimodal).
 %
