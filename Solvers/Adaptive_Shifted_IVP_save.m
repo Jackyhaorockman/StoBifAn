@@ -79,28 +79,29 @@ while err >= err_tol
     %      opts.nswp = 30;
     %      opts.kickrank=6;
     %      [rhs, ~, swp]=amen_solve(A, rhs, tt_tol, opts, rhs);
-    % --- using amen_solve2 ----
+    % --- OR using amen_solve2 ----
     [rhs,testdata,~] = amen_solve2(A, rhs, tt_tol, 'nswp', 30, 'x0', rhs);
-    swp = find(testdata{1}(1,:)==0,1,'first');
+    % detect the number of sweeps with verb==1 
+    swp = find(max(testdata{3})<tt_tol, 1);
     if isempty(swp); swp = 30; end;
     % --------------------------
     
     % ------- change the time step -----
-    if swp <= 4
+    if swp <= 4   % converges too fast => increase the time step
         
         dt = dt*dt_scale;
         rhs = rhs_pre;
         if_save = 0;
         if_up = 1;
         
-    elseif swp >= 30
+    elseif swp >= 30  % didn't converge within prescribed time step => redo the iteration with smaller time step
         
         dt = dt/dt_scale;
         rhs = rhs_pre;
         if_save = 0;
         if_down = 1;
         
-    elseif swp >= 20
+    elseif swp >= 20 % converges a bit slow => shorten the time step for next iteration
         
         dt = dt/dt_scale;
         rhs = rhs / norm(rhs);
@@ -111,7 +112,7 @@ while err >= err_tol
         if_down = 0;
         if_repeat = 0;
         
-    else
+    else  % nicely converged => keep the current time step
         
         rhs = rhs / norm(rhs);
         err = norm(Operator * rhs);
