@@ -1,4 +1,4 @@
-function Example_CFPE_SimpleReactionChain_X1_P2
+function Example_0_4_CFPE_SimpleReactionChain_X1_P2
 % EXAMPLE_REACTIONCHAIN_X1_P2 Solves for the parametric steady state
 % distribution for the simple death-birth process (single species) with
 % varying birth and death rates.

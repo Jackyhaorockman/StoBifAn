@@ -1,4 +1,4 @@
-function Example_CFPE_SimpleReactionChain_X2_P0
+function Example_0_2_CFPE_SimpleReactionChain_X2_P0
 % EXAMPLE_REACTIONCHAIN_X1_P0 Solves for the steady state distribution for
 % the reaction chain with two chemical species with constant reaction
 % rates.

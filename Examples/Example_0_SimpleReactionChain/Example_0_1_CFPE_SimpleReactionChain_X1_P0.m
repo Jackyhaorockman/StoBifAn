@@ -1,4 +1,4 @@
-function Example_CFPE_SimpleReactionChain_X1_P0
+function Example_0_1_CFPE_SimpleReactionChain_X1_P0
 % EXAMPLE_REACTIONCHAIN_X1_P0 Solves for the steady state distribution for
 % the simple death-birth process (single species) with constant reaction
 % rates.
