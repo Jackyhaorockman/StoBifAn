@@ -25,9 +25,8 @@ function output = Initial_CFPE_para(x_lim, d, task, mean, sigma, p_var, pd)
 % liao@maths.ox.ac.uk
 % -----------------------------
 
-num_spe = length(x_lim);
-
-A = Initial_CFPE(x_lim, d*ones(1,num_spe), task, mean, sigma);
+% We take a scalar d, replicate it for all species
+A = Initial_CFPE(x_lim, d, task, mean, sigma);
 
 I = tt_ones(2, p_var * pd);
 
