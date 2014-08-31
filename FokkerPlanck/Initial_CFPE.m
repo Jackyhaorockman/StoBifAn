@@ -44,6 +44,13 @@ function output = Initial_CFPE(x_lim, d, task, mean, sigma)
 % -----------------------------
 
 
+[~, num_spe] = size(v);
+
+if (numel(d)==1)
+ 
+    d = d*ones(num_spe,1);
+end
+
 switch task
     case 1 % return an initial guess of all ones over all tensor grid points
         
