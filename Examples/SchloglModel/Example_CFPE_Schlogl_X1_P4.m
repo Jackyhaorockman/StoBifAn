@@ -69,9 +69,9 @@ tol_solve = 1e-5;
 
 % define the path to save the data
 file_name_tt = 'parametric_steady_state1';
-file_name_time = 'cpu_time'; 
-file_name_err = 'error_convergence';
-file_name_dt = 'adaptive_time_step';
+file_name_time = 'cpu_time1'; 
+file_name_err = 'error_convergence1';
+file_name_dt = 'adaptive_time_step1';
 % ==========
 
 

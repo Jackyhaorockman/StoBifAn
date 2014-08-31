@@ -104,11 +104,11 @@ tol_solve = 1e-5;
 % define the path to save the data
 file_name_tt = 'parametric_steady_state1';
 
-file_name_time = 'cpu_time'; 
+file_name_time = 'cpu_time1'; 
 
-file_name_err = 'error_convergence';
+file_name_err = 'error_convergence1';
 
-file_name_dt = 'adaptive_time_step';
+file_name_dt = 'adaptive_time_step1';
 
 % ==========
 
@@ -117,7 +117,7 @@ file_name_dt = 'adaptive_time_step';
 
 CFPE = Operator_CFPE_para(x_lim, d, v, rate, React, tol_rank, p_var, pd, rate_interval, ip, @CFPE_alpha_Example_CellCycle, para_alpha);
 
-RHS = Initial_CFPE_para(x_lim, d, task_RHS, mean, sigma, p_var, pd);
+RHS = Initial_CFPE_para(x_lim, d, task_RHS, mean, sigma, p_var, pd)
 
 % ======
 
