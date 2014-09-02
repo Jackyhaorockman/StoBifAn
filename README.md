@@ -29,7 +29,7 @@ Related
 
 The MATLAB files are built upon the [TT-Toolbox](https://github.com/Jackyhaorockman/TT-Toolbox).  
 
-Note: We are still commenting and uploading parts of the coding templates. You are welcome to contant liao@maths.ox.ac.uk, for any questions about StoBifAn.
+Note: We are still commenting and uploading parts of the coding templates. You are welcome to contact liao@maths.ox.ac.uk, for any questions about StoBifAn.
 
 Lisence
 ---
