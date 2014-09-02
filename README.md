@@ -3,15 +3,24 @@
 StoBifAn/TPA
 ===
 
-Stochastic Bifurcation Analyser
-&
-Tensor-structured Parametric Analysis
+Stochastic Bifurcation Analyser & Tensor-structured Parametric Analysis
 
-The [StoBifAn](http://www.stobifan.org/) toolbox aims for automated, efficient analysis of high-dimensional well-mixed stochastic biochemical systems. The included MATLAB files requires [TT-Toolbox](https://github.com/oseledets/TT-Toolbox) with version >= 2.0.  Publication produced from the toolbox includes:
+The [StoBifAn](http://www.stobifan.org/) toolbox aims for automated, efficient analysis of high-dimensional well-mixed stochastic biochemical systems. Feature highlights:
+
+- Assemble the large dimensional chemical master equation (CME) and the chemical Fokker-Planck equation (CFPE) in the low-parametric, separable, and rank-structured tensor format.
+- Solve for the steady state distributions from the CMEs/CFPEs simultaneously for ranges of multiple parameter values.
+- Study the identifiability of model parameters based on the [Method of Moments (MOM)](http://en.wikipedia.org/wiki/Method_of_moments_(statistics)).
+- Directly compute the bifurcation structure of the large dimensional stochastic reacting systems.
+- Couple the intrinsic and extrinsic noise into the steady state computation, the so-called robustness analysis.
+- Sensitivity analysis of the parametric stationary distributions.
+
+For more information regarding the methodologies, please see:
 
 Liao, S., Vejchodsky, T. & Erban, R. (2014). [Parameter estimation and bifurcation analysis of stochastic models of gene regulatory networks: tensor-structured methods](http://arxiv.org/abs/1406.7825). arXiv preprint arXiv:1406.7825.
 
-Note: We are still commenting and uploading parts of the coding templates, and should be completed in a couple of weeks. For more inquiries, please email liao@maths.ox.ac.uk.
+The MATLAB files are built upon the [TT-Toolbox](https://github.com/Jackyhaorockman/TT-Toolbox).  
+
+Note: We are still commenting and uploading parts of the coding templates. You are welcome to contant liao@maths.ox.ac.uk, for any questions about StoBifAn.
 
 
 
